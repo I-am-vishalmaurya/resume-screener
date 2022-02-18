@@ -1,0 +1,28 @@
+{% extends 'layouts/default/page.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-2 p-2">
+            <div class="col-md-12 col-sm-12">
+                <div class="text-capitalize text-black-50 text-center fs-4">
+                    Apply for jobs.
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2 p-2">
+            {% for job in job_list %}
+                <div class="card" style="width: 18rem;">
+{#                    <img src="..." class="card-img-top" alt="...">#}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ job.job_title }}</h5>
+                        <p class="card-text">{{ job.job_description }}</p>
+                        <p class="card-text text-black-50">Location: {{ job.job_location }}</p>
+
+                        <a href="{% url "resumes:apply_for_job" job_id=job.id %}" class="btn btn-primary">Apply</a>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

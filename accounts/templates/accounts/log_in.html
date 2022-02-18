@@ -1,0 +1,50 @@
+{% extends 'layouts/default/page.html' %}
+
+{% load bootstrap4 %}
+{% load i18n %}
+
+{% block content %}
+
+
+
+    <form method="post">
+
+        {% csrf_token %}
+        <div class="container">
+
+            <div class="row mt-2 p-2">
+                <div class="col-3">
+
+                </div>
+                <div class="col-6">
+                    <h4>{% trans 'Log in' %}</h4>
+                    {% bootstrap_form form %}
+                    <button class="btn btn-primary mt-2 p-2">{% trans 'Log in' %}</button>
+                    <hr>
+                    <ul class="mt-2 p-2">
+                        <li>
+                            <a href="{% url 'accounts:restore_password' %}">{% trans 'Forgot your password?' %}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'accounts:remind_username' %}">{% trans 'Forgot your username?' %}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'accounts:resend_activation_code' %}">{% trans 'Resend an activation code' %}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3">
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </form>
+
+
+
+
+
+{% endblock %}

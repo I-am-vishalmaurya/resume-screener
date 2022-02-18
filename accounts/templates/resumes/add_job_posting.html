@@ -1,0 +1,53 @@
+{% extends 'layouts/default/page.html' %}
+{% block content %}
+    <div class="container row justify-content-center mt-2 p-2">
+        <div class="col-md-8">
+            <div class="text-black-50 fs-4">
+                Post A Job.
+            </div>
+            <form action="{% url 'resumes:hr_job_postings' %}" method="post">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Job Title</label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Job Location</label>
+                    <input type="text" class="form-control" name="location" id="location" placeholder="Mumbai">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Skills Required</label>
+                    <textarea type="text" class="form-control" name="skills" id="skills" rows="3"
+                              placeholder="Python, Java, etc"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Job Description</label>
+                    <textarea class="form-control" name="description" id="description" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-group w-100 btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+{#    <h1>Add Job</h1>#}
+{#    <form action="{% url 'resumes:hr_job_postings' %}" method="post">#}
+{#        {% csrf_token %}#}
+{#        <div>#}
+{#            <label for="resume">Job Title</label>#}
+{#            <input type="text" name="title" id="title">#}
+{#        </div>#}
+{#        <div>#}
+{#            <label for="resume">Job Description</label>#}
+{#            <textarea name="description" id="description" cols="30" rows="10"></textarea>#}
+{#        </div>#}
+{#        <div>#}
+{#            <label for="resume">Job Location</label>#}
+{#            <input type="text" name="location" id="location">#}
+{#        </div>#}
+{#        <div>#}
+{#            <label for="skills">Skills</label>#}
+{#            <input type="text" name="skills" id="skills">#}
+{#        </div>#}
+{#        <button type="submit">Submit</button>#}
+{#    </form>#}
+
+{% endblock %}

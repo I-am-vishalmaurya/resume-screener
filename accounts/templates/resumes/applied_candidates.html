@@ -1,0 +1,29 @@
+{% extends 'layouts/default/page.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-2 p-2">
+            <div class="col-md-12 col-sm-12">
+                <div class="text-capitalize text-black-50 text-center fs-4">
+                    Applied Candidate.
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2 p-2">
+            {% for details in all_details %}
+                <div class="card" style="width: 18rem;">
+                    {#                    <img src="..." class="card-img-top" alt="...">#}
+                    <div class="card-body">
+                        <h5 class="card-title">Name: {{ details.name }}</h5>
+                        <p class="card-text">{{ details.email }}</p>
+                        <p class="text-capitalize text-black-50">Matching
+                            Percentage: {{ details.matching_percentage }}</p>
+                        <a href="{% url "resumes:download_resume" user_id=details.id %}" class="btn btn-primary btn-sm">Download Resume</a>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

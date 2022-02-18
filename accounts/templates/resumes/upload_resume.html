@@ -1,0 +1,35 @@
+{% extends 'layouts/default/page.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row mt-2 p-2">
+            <div class="col-md-12 text-center">
+                <h2>Upload Resume</h2>
+            </div>
+            <p class="text-gray text-center">
+                <small>
+                    <i class="fa fa-info-circle"></i>
+                    Upload your resume to get the best job opportunities.
+                </small>
+            </p>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6 text-center align-content-center">
+                <form action="{% url 'resumes:upload_resume' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+{#                        <label for="formFile" class="form-label">Upload your resume here.</label>#}
+                        <input class="form-control" type="file" name="resume" id="resume">
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary btn-block" type="submit">Upload</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
